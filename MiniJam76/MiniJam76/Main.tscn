@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/earth.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="earth" type="Sprite" parent="."]
+position = Vector2( 738.017, 303.735 )
+scale = Vector2( 7.08853, 7.08853 )
+texture = ExtResource( 1 )
+hframes = 2
