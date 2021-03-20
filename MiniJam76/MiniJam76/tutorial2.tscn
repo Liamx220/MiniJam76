@@ -1,18 +1,55 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://spawner.gd" type="Script" id=1]
+[ext_resource path="res://PressStart2P-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://tutorial2.gd" type="Script" id=3]
+[ext_resource path="res://earth.tscn" type="PackedScene" id=4]
 [ext_resource path="res://spawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sun.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/background.png" type="Texture" id=8]
 
+[sub_resource type="DynamicFont" id=1]
+size = 27
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+font_data = ExtResource( 2 )
+
 [node name="tutorial2" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 463.215, 273.228 )
 scale = Vector2( 2.9505, 3.14692 )
 texture = ExtResource( 8 )
 
-[node name="spawner" type="Node" parent="." instance=ExtResource( 6 )]
-script = ExtResource( 1 )
+[node name="spawner" parent="." instance=ExtResource( 6 )]
 
-[node name="Node2D" type="Node2D" parent="." instance=ExtResource( 7 )]
+[node name="Node2D" parent="." instance=ExtResource( 7 )]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 383.326
+margin_right = 701.0
+margin_bottom = 508.326
+custom_fonts/font = SubResource( 1 )
+text = "Use the satellite to absorb the deadly radiation before it hits earth."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="earth" parent="." instance=ExtResource( 4 )]
+position = Vector2( 655.597, 188.922 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 188.02
+margin_top = 482.878
+margin_right = 400.02
+margin_bottom = 537.878
+custom_fonts/font = SubResource( 2 )
+text = "Next"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
