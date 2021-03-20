@@ -66,8 +66,12 @@ position = Vector2( -163.586, 1.21353 )
 rotation = -1.5708
 scale = Vector2( 1.238, 1.238 )
 <<<<<<< HEAD
+<<<<<<< HEAD
 frames = SubResource( 4 )
 frame = 1
+=======
+frames = SubResource( 16 )
+>>>>>>> parent of f7db9b1... update
 =======
 frames = SubResource( 16 )
 >>>>>>> parent of f7db9b1... update
