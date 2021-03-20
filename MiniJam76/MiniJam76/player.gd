@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 
 export (float) var rotation_speed = 4
-onready var sprite = $Sprite
 
 var velocity = Vector2()
 var rotation_dir = 0
@@ -24,5 +23,4 @@ func _physics_process(delta):
 	rotation += rotation_dir * rotation_speed * delta
 	velocity = move_and_slide(velocity)
 
-func _on_Area2D_area_entered(area):
-	sprite.play("hit")
+
