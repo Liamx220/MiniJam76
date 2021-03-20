@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Sprites/earth.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/satellite_blink.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/background.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/sun.png" type="Texture" id=4]
+[ext_resource path="res://player.gd" type="Script" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -51,6 +52,9 @@ animations = [ {
 
 [sub_resource type="CircleShape2D" id=11]
 
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 8.29504, 17.9775 )
+
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 31, 16 )
@@ -67,23 +71,22 @@ animations = [ {
 "speed": 1.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 13.384, 35.2377 )
-
 [node name="Node2D" type="Node2D"]
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 640.276, 359.968 )
-scale = Vector2( 4.24948, 4.24948 )
+position = Vector2( 354.085, 194.165 )
+scale = Vector2( 2.26844, 2.26844 )
 texture = ExtResource( 3 )
 
 [node name="earth" type="StaticBody2D" parent="."]
-position = Vector2( 978.751, 360 )
+position = Vector2( 558.751, 202 )
 scale = Vector2( 7.41243, 7.41243 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="earth"]
+position = Vector2( 0.240372, -0.240379 )
+scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 10 )
-frame = 5
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="earth"]
@@ -92,25 +95,25 @@ scale = Vector2( 1.75, 1.75 )
 shape = SubResource( 11 )
 
 [node name="satellite" type="KinematicBody2D" parent="."]
-position = Vector2( 751.201, 360 )
+position = Vector2( 449.956, 207.899 )
 scale = Vector2( 1.38587, 1.38587 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="AnimatedSprite" parent="satellite"]
-rotation = -1.5708
-scale = Vector2( 2.47744, 2.47744 )
-frames = SubResource( 14 )
-frame = 1
-playing = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="satellite"]
-visible = false
-position = Vector2( 2.16467, 0 )
+position = Vector2( 1.99442, -0.681061 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 15 )
 
+[node name="Sprite" type="AnimatedSprite" parent="satellite"]
+rotation = -1.5708
+scale = Vector2( 1.238, 1.238 )
+frames = SubResource( 14 )
+playing = true
+
 [node name="sun" type="Sprite" parent="."]
-position = Vector2( 111.643, 348.976 )
-scale = Vector2( 15.1963, 15.1963 )
+position = Vector2( 119.124, 190.18 )
+scale = Vector2( 7.598, 7.598 )
 texture = ExtResource( 4 )
