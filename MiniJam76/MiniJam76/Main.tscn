@@ -89,9 +89,9 @@ shape = SubResource( 5 )
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Display" type="Label" parent="."]
-margin_left = -7.55957
+margin_left = 5.90991
 margin_top = 464.837
-margin_right = 332.44
+margin_right = 345.909
 margin_bottom = 549.837
 custom_fonts/font = SubResource( 6 )
 text = "Time"

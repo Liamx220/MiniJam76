@@ -32,7 +32,7 @@ animations = [ {
 extents = Vector2( 10.161, 22.4356 )
 
 [sub_resource type="DynamicFont" id=19]
-size = 39
+size = 44
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=20]
@@ -86,7 +86,7 @@ margin_top = 9.0
 margin_right = 406.0
 margin_bottom = 429.0
 custom_fonts/font = SubResource( 19 )
-text = "Use the Left and Right arrow keys or A and D to rotate the satellite. Press P to pause."
+text = "Use the Left and Right arrow keys or A and D to rotate the satellite"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
