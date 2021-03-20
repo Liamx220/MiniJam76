@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://earth.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/satellite_blink.png" type="Texture" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://sun.tscn" type="PackedScene" id=4]
 [ext_resource path="res://player.gd" type="Script" id=5]
 [ext_resource path="res://spawner.tscn" type="PackedScene" id=6]
-[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://Main.gd" type="Script" id=7]
+[ext_resource path="res://Display.gd" type="Script" id=8]
+[ext_resource path="res://PressStart2P-Regular.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 8.29504, 17.9775 )
@@ -30,11 +32,16 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 10.161, 22.4356 )
 
+[sub_resource type="DynamicFont" id=18]
+size = 50
+font_data = ExtResource( 9 )
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 463.215, 255.55 )
-scale = Vector2( 2.9505, 2.9505 )
+position = Vector2( 463.215, 273.228 )
+scale = Vector2( 2.9505, 3.14692 )
 texture = ExtResource( 3 )
 
 [node name="earth" parent="." instance=ExtResource( 1 )]
@@ -70,6 +77,20 @@ shape = SubResource( 17 )
 
 [node name="Node2D" parent="." instance=ExtResource( 4 )]
 
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Display" type="Label" parent="."]
+margin_left = -7.55957
+margin_top = 464.837
+margin_right = 332.44
+margin_bottom = 549.837
+custom_fonts/font = SubResource( 18 )
+text = "Time"
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Control" type="Control" parent="."]
 margin_top = 422.0
 margin_right = 701.0
@@ -77,9 +98,5 @@ margin_bottom = 547.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Sprite" type="Sprite" parent="Control"]
-position = Vector2( 350.816, 62.4334 )
-scale = Vector2( 10.9596, 1.72467 )
-texture = ExtResource( 7 )
 [connection signal="area_entered" from="satellite/Area2D" to="satellite" method="_on_Area2D_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
