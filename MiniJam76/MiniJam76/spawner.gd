@@ -14,8 +14,8 @@ func spawn():
   var enemy_in = enemy.instance()
   var pos = Vector2() 
   pos.x = 0-16
-  pos.y = rand_range(0+16, get_viewport().get_visible_rect().size.x-16)
+  pos.y = rand_range(364.062, 18.994)
   enemy_in.set_position(pos)
   get_node("container").add_child(enemy_in)
-  yield(get_tree().create_timer(rand_range(0.5, 1.25)), "timeout") 
+  yield(get_tree().create_timer(rand_range(1.0, 1.87)), "timeout") 
  pass

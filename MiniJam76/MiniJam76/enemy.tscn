@@ -11,7 +11,9 @@ radius = 16.148
 [node name="enemy" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"enemy",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=[
 "enemy",

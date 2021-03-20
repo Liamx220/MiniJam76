@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://earth.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/satellite_blink.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/background.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/sun.png" type="Texture" id=4]
+[ext_resource path="res://sun.tscn" type="PackedScene" id=4]
 [ext_resource path="res://player.gd" type="Script" id=5]
 [ext_resource path="res://spawner.tscn" type="PackedScene" id=6]
-[ext_resource path="res://enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 8.29504, 17.9775 )
@@ -27,42 +27,59 @@ animations = [ {
 "speed": 1.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 10.161, 22.4356 )
+
 [node name="Node2D" type="Node2D"]
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 354.085, 194.165 )
-scale = Vector2( 2.26844, 2.26844 )
+position = Vector2( 463.215, 255.55 )
+scale = Vector2( 2.9505, 2.9505 )
 texture = ExtResource( 3 )
 
 [node name="earth" parent="." instance=ExtResource( 1 )]
-position = Vector2( 558.126, 200.576 )
-
-[node name="enemy" parent="earth" instance=ExtResource( 7 )]
-position = Vector2( -558.126, -200.576 )
+position = Vector2( 655.597, 188.922 )
 
 [node name="spawner" parent="." instance=ExtResource( 6 )]
 
-[node name="satellite" type="KinematicBody2D" parent="."]
-position = Vector2( 558.163, 200.424 )
+[node name="satellite" type="KinematicBody2D" parent="." groups=[
+"player",
+]]
+position = Vector2( 656.029, 188.651 )
 scale = Vector2( 1.38587, 1.38587 )
+z_as_relative = false
 script = ExtResource( 5 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="satellite"]
-position = Vector2( -95.4543, -0.681061 )
+position = Vector2( -161.592, 0.532471 )
 shape = SubResource( 13 )
 
 [node name="Sprite" type="AnimatedSprite" parent="satellite"]
-position = Vector2( -97.4489, 0 )
+position = Vector2( -163.586, 1.21353 )
 rotation = -1.5708
 scale = Vector2( 1.238, 1.238 )
 frames = SubResource( 16 )
 frame = 1
 playing = true
 
-[node name="sun" type="Sprite" parent="."]
-position = Vector2( 119.124, 190.18 )
-scale = Vector2( 7.598, 7.598 )
-texture = ExtResource( 4 )
+[node name="Area2D" type="Area2D" parent="satellite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="satellite/Area2D"]
+position = Vector2( -161.437, 0.429047 )
+shape = SubResource( 17 )
+
+[node name="Node2D" parent="." instance=ExtResource( 4 )]
+
+[node name="Control" type="Control" parent="."]
+margin_top = 422.0
+margin_right = 701.0
+margin_bottom = 547.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Control"]
+position = Vector2( 350.816, 62.4334 )
+scale = Vector2( 10.9596, 1.72467 )
+texture = ExtResource( 7 )
+[connection signal="area_entered" from="satellite/Area2D" to="satellite" method="_on_Area2D_area_entered"]

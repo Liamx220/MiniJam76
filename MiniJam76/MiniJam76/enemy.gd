@@ -19,8 +19,10 @@ func _physics_process(delta):
 
 
 func _on_Area2D_area_entered(area):
-	print("help")
 	
-		#print("help")
+		
+	queue_free()
+	
+	
 	
 	
