@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 var speed = 200
 var velocity = Vector2()
+var player = null
 func _ready():
 	add_to_group("enemy")
 
@@ -15,3 +16,11 @@ func move_Down():
 func _physics_process(delta):
 	move_Down()
 	move_and_slide(velocity)
+
+
+func _on_Area2D_area_entered(area):
+	print("help")
+	
+		#print("help")
+	
+	
