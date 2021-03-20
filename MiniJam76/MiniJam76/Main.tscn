@@ -86,7 +86,6 @@ scale = Vector2( 7.41243, 7.41243 )
 position = Vector2( 0.240372, -0.240379 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 10 )
-frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="earth"]
@@ -95,7 +94,7 @@ scale = Vector2( 1.75, 1.75 )
 shape = SubResource( 11 )
 
 [node name="satellite" type="KinematicBody2D" parent="."]
-position = Vector2( 449.956, 207.899 )
+position = Vector2( 558.163, 200.424 )
 scale = Vector2( 1.38587, 1.38587 )
 script = ExtResource( 5 )
 __meta__ = {
@@ -103,11 +102,12 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="satellite"]
-position = Vector2( 1.99442, -0.681061 )
+position = Vector2( -76.1908, -0.681061 )
 scale = Vector2( 1, 1 )
 shape = SubResource( 15 )
 
 [node name="Sprite" type="AnimatedSprite" parent="satellite"]
+position = Vector2( -78.1853, 0 )
 rotation = -1.5708
 scale = Vector2( 1.238, 1.238 )
 frames = SubResource( 14 )
