@@ -20,4 +20,4 @@ func _ready():
 func _on_Area2D_area_entered(area):
 	progressBar.value += 20
 	if progressBar.value == 100:
-		print("hello")
+		get_tree().change_scene("res://GameOver.tscn")
