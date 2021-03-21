@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://earth.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/satellite_blink.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://music/Sunstrider.wav" type="AudioStream" id=15]
 [ext_resource path="res://music/Error 1.wav" type="AudioStream" id=16]
 [ext_resource path="res://Sprites/satellite_hit.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/rad_bar_background.png" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.29504, 17.9775 )
@@ -48,7 +49,7 @@ animations = [ {
 "name": "default",
 "speed": 1.0
 }, {
-"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 16 ) ],
 "loop": false,
 "name": "hit",
 "speed": 5.0
@@ -69,16 +70,13 @@ font_data = ExtResource( 9 )
 size = 70
 font_data = ExtResource( 9 )
 
-[sub_resource type="StyleBoxTexture" id=9]
+[sub_resource type="StyleBoxTexture" id=20]
 texture = ExtResource( 12 )
-region_rect = Rect2( 10.681, 8.58228, 82.9291, 15.7519 )
-margin_left = 10.2668
-margin_right = 3.78252
-margin_top = 8.80253
-margin_bottom = 6.94937
+region_rect = Rect2( 0, 0, 100, 31 )
 
-[sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0.14902, 0.145098, 0.145098, 1 )
+[sub_resource type="StyleBoxTexture" id=19]
+texture = ExtResource( 18 )
+region_rect = Rect2( 0, 0, 100, 31 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 23
@@ -116,7 +114,7 @@ rotation = -1.5708
 scale = Vector2( 1.238, 1.238 )
 frames = SubResource( 4 )
 animation = "hit"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="satellite"]
@@ -224,12 +222,12 @@ scale = Vector2( 2.9505, 3.14692 )
 texture = ExtResource( 3 )
 
 [node name="ProgressBar" type="ProgressBar" parent="earth"]
-margin_left = -297.0
-margin_top = 268.0
+margin_left = -410.0
+margin_top = 244.0
 margin_right = 39.0
 margin_bottom = 338.0
-custom_styles/fg = SubResource( 9 )
-custom_styles/bg = SubResource( 12 )
+custom_styles/fg = SubResource( 20 )
+custom_styles/bg = SubResource( 19 )
 custom_fonts/font = SubResource( 11 )
 percent_visible = false
 __meta__ = {
@@ -237,7 +235,7 @@ __meta__ = {
 }
 
 [node name="radiation_symbol" type="Sprite" parent="earth/ProgressBar"]
-position = Vector2( -62.7928, 32.9297 )
+position = Vector2( 9.40982, 48.4861 )
 scale = Vector2( 3.91868, 3.91868 )
 texture = ExtResource( 13 )
 
