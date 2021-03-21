@@ -35,6 +35,7 @@ func _physics_process(delta):
 
 
 func _on_Area2D_area_entered(area):
+	$hit.play()
 	sprite.animation = "hit"
 
 func _on_Sprite_animation_finished():
