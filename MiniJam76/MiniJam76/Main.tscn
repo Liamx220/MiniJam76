@@ -78,6 +78,8 @@ position = Vector2( 656.029, 188.651 )
 scale = Vector2( 1.38587, 1.38587 )
 z_as_relative = false
 script = ExtResource( 5 )
+max_rot_speed = 2.0
+acceleration = 0.75
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="satellite"]
 position = Vector2( -161.592, 0.532471 )
