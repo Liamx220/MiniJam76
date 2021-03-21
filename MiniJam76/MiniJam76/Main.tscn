@@ -76,6 +76,7 @@ position = Vector2( -163.586, 1.21353 )
 rotation = -1.5708
 scale = Vector2( 1.238, 1.238 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="satellite"]
@@ -166,3 +167,4 @@ __meta__ = {
 }
 [connection signal="area_entered" from="satellite/Area2D" to="satellite" method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="pauseMenu/Button" to="pauseMenu" method="_on_Button_pressed"]

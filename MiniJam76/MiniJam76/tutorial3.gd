@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -11,13 +11,10 @@ func _ready():
 	pass # Replace with function body.
 
 
-
-func _process(delta):
-	if Input.is_action_pressed("pause"):
-		visible = true
-		get_tree().paused = true
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
 
 
 func _on_Button_pressed():
-	get_tree().paused = false
-	visible = false
+	get_tree().change_scene("res://Main.tscn")
