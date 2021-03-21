@@ -1,7 +1,7 @@
 extends Node2D
 
 
-onready var score = get_node("res://Main.gd")
+onready var score = get_node("res://Main.tscn")
 onready var timer = get_node("Score")
 
 func _ready():
