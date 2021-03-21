@@ -1,10 +1,7 @@
 extends StaticBody2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+onready var progressBar = $ProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,4 +18,6 @@ func _ready():
 
 
 func _on_Area2D_area_entered(area):
-	pass # Replace with function body.
+	progressBar.value += 20
+	if progressBar.value == 100:
+		print("hello")

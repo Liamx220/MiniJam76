@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://earth.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/satellite_blink.png" type="Texture" id=2]
@@ -12,6 +12,22 @@
 [ext_resource path="res://Sprites/stopwatch.png" type="Texture" id=10]
 [ext_resource path="res://pauseMenu.gd" type="Script" id=11]
 [ext_resource path="res://Sprites/rad_bar_fill.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/radiation_symbol.png" type="Texture" id=13]
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 12 )
+region_rect = Rect2( 10.681, 8.58228, 82.9291, 15.7519 )
+margin_left = 10.2668
+margin_right = 3.78252
+margin_top = 8.80253
+margin_bottom = 6.94937
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 23
+font_data = ExtResource( 9 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.29504, 17.9775 )
@@ -44,22 +60,7 @@ size = 38
 font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=8]
-size = 91
-font_data = ExtResource( 9 )
-
-[sub_resource type="StyleBoxTexture" id=9]
-texture = ExtResource( 12 )
-region_rect = Rect2( 10.681, 8.58228, 82.9291, 15.7519 )
-margin_left = 10.2668
-margin_right = 3.78252
-margin_top = 8.80253
-margin_bottom = 6.94937
-
-[sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="DynamicFont" id=11]
-size = 23
+size = 70
 font_data = ExtResource( 9 )
 
 [node name="Node2D" type="Node2D"]
@@ -74,6 +75,24 @@ texture = ExtResource( 3 )
 
 [node name="earth" parent="." instance=ExtResource( 1 )]
 position = Vector2( 655.597, 188.922 )
+
+[node name="ProgressBar" type="ProgressBar" parent="earth"]
+margin_left = -297.0
+margin_top = 268.0
+margin_right = 39.0
+margin_bottom = 338.0
+custom_styles/fg = SubResource( 9 )
+custom_styles/bg = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="radiation_symbol" type="Sprite" parent="earth/ProgressBar"]
+position = Vector2( -62.7928, 32.9297 )
+scale = Vector2( 3.91868, 3.91868 )
+texture = ExtResource( 13 )
 
 [node name="satellite" type="KinematicBody2D" parent="." groups=[
 "player",
@@ -92,6 +111,7 @@ position = Vector2( -163.586, 1.21353 )
 rotation = -1.5708
 scale = Vector2( 1.238, 1.238 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="satellite"]
@@ -111,12 +131,12 @@ scale = Vector2( 3.39133, 3.39133 )
 texture = ExtResource( 10 )
 
 [node name="Display" type="Label" parent="."]
-margin_left = 111.844
-margin_top = 472.373
-margin_right = 451.843
-margin_bottom = 557.373
+margin_left = 105.7
+margin_top = 470.74
+margin_right = 316.7
+margin_bottom = 555.74
 custom_fonts/font = SubResource( 6 )
-text = "Time"
+text = "1"
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -181,25 +201,63 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Gameover" type="Control" parent="."]
+visible = false
+margin_right = 703.0
+margin_bottom = 546.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar" type="ProgressBar" parent="Control"]
-margin_left = 373.0
-margin_top = 462.0
-margin_right = 684.0
-margin_bottom = 527.0
-custom_styles/fg = SubResource( 9 )
-custom_styles/bg = SubResource( 12 )
-custom_fonts/font = SubResource( 11 )
-value = 30.0
+[node name="background3" type="Sprite" parent="Gameover"]
+visible = false
+position = Vector2( 463.215, 273.228 )
+scale = Vector2( 2.9505, 3.14692 )
+texture = ExtResource( 3 )
+
+[node name="Button3" type="Button" parent="Gameover"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.0
+margin_top = -138.732
+margin_right = 143.0
+margin_bottom = -35.732
+custom_fonts/font = SubResource( 7 )
+text = "Unpause"
+
+[node name="Button4" type="Button" parent="Gameover"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.0
+margin_top = -11.596
+margin_right = 143.0
+margin_bottom = 91.404
+custom_fonts/font = SubResource( 7 )
+text = "Quit"
+
+[node name="Label2" type="Label" parent="Gameover"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -409.5
+margin_top = -253.152
+margin_right = 409.5
+margin_bottom = -162.152
+custom_fonts/font = SubResource( 8 )
+text = "Game Over"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="area_entered" from="satellite/Area2D" to="satellite" method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="pauseMenu/Button" to="pauseMenu" method="_on_Button_pressed"]
+[connection signal="pressed" from="pauseMenu/Button2" to="pauseMenu" method="_on_Button2_pressed"]
+[connection signal="pressed" from="Gameover/Button3" to="pauseMenu" method="_on_Button_pressed"]
