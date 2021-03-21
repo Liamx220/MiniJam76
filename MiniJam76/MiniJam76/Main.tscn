@@ -214,6 +214,7 @@ texture = ExtResource( 13 )
 
 [node name="Gameover" type="Control" parent="earth"]
 pause_mode = 2
+visible = false
 margin_left = -655.597
 margin_top = -188.922
 margin_right = 47.403
