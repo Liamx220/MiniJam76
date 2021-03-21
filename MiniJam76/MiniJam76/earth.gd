@@ -8,6 +8,7 @@ onready var highscore = $Gameover/Score2
 onready var sprite = $AnimatedSprite
 onready var score = get_node("/root/Node2D/Display")#.get("Display.gd")
 
+signal game_over
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,6 +26,8 @@ func _on_Area2D_area_entered(area):
 	$hitearht.play()
 	progressBar.value += 20
 	if progressBar.value == 100:
+		$explode.play()
+		emit_signal("game_over")
 		sprite.animation = "explode"
 		
 func _on_AnimatedSprite_animation_finished():

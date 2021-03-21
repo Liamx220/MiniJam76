@@ -31,6 +31,7 @@ func _physics_process(delta):
 	
 	get_input()
 	rotation += rotation_dir * rotation_speed * delta
+	rotation = clamp(rotation, -1.5, 1)
 	velocity = move_and_slide(velocity)
 
 

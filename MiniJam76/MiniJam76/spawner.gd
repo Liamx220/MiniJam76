@@ -34,3 +34,6 @@ func _on_Timer_timeout():
 	else:
 		spawntimeMin -= (0.01 * (time_passed / 15))
 	
+
+func _on_earth_game_over():
+	queue_free()

@@ -121,6 +121,7 @@ rotation = -1.5708
 scale = Vector2( 1.238, 1.238 )
 frames = SubResource( 7 )
 animation = "blink"
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="satellite"]
@@ -349,5 +350,6 @@ __meta__ = {
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="pauseMenu/Button" to="pauseMenu" method="_on_Button_pressed"]
 [connection signal="pressed" from="pauseMenu/Button2" to="pauseMenu" method="_on_Button2_pressed"]
+[connection signal="game_over" from="earth" to="spawner" method="_on_earth_game_over"]
 [connection signal="pressed" from="earth/Gameover/Button4" to="." method="_on_Button4_pressed"]
 [connection signal="pressed" from="earth/Gameover/Button5" to="." method="_on_Button5_pressed"]
