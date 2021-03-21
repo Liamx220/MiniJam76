@@ -5,6 +5,7 @@ onready var progressBar = $ProgressBar
 onready var GameOver = $Gameover
 onready var Displayscore = $Gameover/Score
 onready var highscore = $Gameover/Score2
+onready var sprite = $AnimatedSprite
 onready var score = get_node("/root/Node2D/Display")#.get("Display.gd")
 
 
@@ -26,13 +27,13 @@ func _on_Area2D_area_entered(area):
 	$hitearht.play()
 	progressBar.value += 20
 	if progressBar.value == 100:
+		sprite.animation = "explode"
+		
+func _on_AnimatedSprite_animation_finished():
+	if (progressBar.value == 100):
+		sprite.playing = false
 		GameOver.visible = true
 		get_tree().paused = true
 		print(score.get_parent().DisplayValue)
 		
 		Displayscore.text = "Score:" + str(score.get_parent().DisplayValue)
-		
-		
-	
-		
-		
