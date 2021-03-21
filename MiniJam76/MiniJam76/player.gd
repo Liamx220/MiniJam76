@@ -9,6 +9,7 @@ var velocity = Vector2()
 var rotation_dir = 0
 var rotation_speed = 0
 func _ready():
+	
 	$soundtrack.play()
 
 func get_input():
@@ -36,8 +37,8 @@ func _physics_process(delta):
 
 func _on_Area2D_area_entered(area):
 	$hit.play()
-	sprite.animation = "hit"
+	$Sprite.play("hit")
 
 func _on_Sprite_animation_finished():
-	if (sprite.animation == "hit"):
-		sprite.animation = "blink"
+	if $Sprite.animation == "hit":
+		$Sprite.animation = "blink"
