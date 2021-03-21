@@ -8,8 +8,8 @@ onready var sprite = $Sprite
 var velocity = Vector2()
 var rotation_dir = 0
 var rotation_speed = 0
-func _ready():
-	$soundtrack.play()
+
+	
 
 func get_input():
 	rotation_dir = 0

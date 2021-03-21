@@ -6,6 +6,7 @@ onready var timer = get_node("Timer")
 func _ready():
 	timer.set_wait_time(1)
 	timer.start()
+	$soundtrack.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

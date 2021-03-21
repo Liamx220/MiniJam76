@@ -89,6 +89,12 @@ font_data = ExtResource( 9 )
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 7 )
 
+[node name="soundtrack" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 656.029, 188.651 )
+scale = Vector2( 1.38587, 1.38587 )
+stream = ExtResource( 15 )
+volume_db = -2.144
+
 [node name="spawner" parent="." instance=ExtResource( 6 )]
 
 [node name="background" type="Sprite" parent="."]
@@ -123,10 +129,6 @@ position = Vector2( 5.91592, 2.57138 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="satellite/Area2D"]
 position = Vector2( -161.437, -1.99802 )
 shape = SubResource( 5 )
-
-[node name="soundtrack" type="AudioStreamPlayer2D" parent="satellite"]
-stream = ExtResource( 15 )
-volume_db = -2.144
 
 [node name="hit" type="AudioStreamPlayer2D" parent="satellite"]
 stream = ExtResource( 16 )

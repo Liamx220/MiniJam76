@@ -23,6 +23,7 @@ func _ready():
 
 
 func _on_Area2D_area_entered(area):
+	$hitearht.play()
 	progressBar.value += 20
 	if progressBar.value == 100:
 		GameOver.visible = true
