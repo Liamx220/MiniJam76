@@ -4,7 +4,7 @@ extends KinematicBody2D
 export (float) var max_rot_speed = 4
 export (float) var acceleration = 1
 
-onready var sprite = $AnimatedSprite
+onready var sprite = $Sprite
 var velocity = Vector2()
 var rotation_dir = 0
 var rotation_speed = 0

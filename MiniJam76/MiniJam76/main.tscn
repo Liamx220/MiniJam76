@@ -19,7 +19,7 @@
 [ext_resource path="res://Sprites/satellite_hit.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/rad_bar_background.png" type="Texture" id=18]
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=1]
 resource_name = "stars"
 length = 2.4
 loop = true
@@ -48,70 +48,70 @@ tracks/1/keys = {
 "values": [ false, true, true ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8.29504, 17.9775 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 17 )
 region = Rect2( 0, 0, 37, 25 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 17 )
 region = Rect2( 37, 0, 37, 25 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 17 )
 region = Rect2( 74, 0, 37, 25 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 35, 25 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
 region = Rect2( 35, 0, 35, 25 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 4 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 3 ) ],
 "loop": true,
 "name": "hit",
 "speed": 7.0
 }, {
-"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "blink",
 "speed": 1.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8.83176, 18.9155 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=10]
 size = 50
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=11]
 size = 38
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=12]
 size = 70
 font_data = ExtResource( 9 )
 
-[sub_resource type="StyleBoxTexture" id=12]
+[sub_resource type="StyleBoxTexture" id=13]
 texture = ExtResource( 12 )
 region_rect = Rect2( 0, 0, 100, 31 )
 
-[sub_resource type="StyleBoxTexture" id=13]
+[sub_resource type="StyleBoxTexture" id=14]
 texture = ExtResource( 18 )
 region_rect = Rect2( 0, 0, 100, 31 )
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=15]
 size = 23
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=16]
 size = 60
 font_data = ExtResource( 9 )
 
@@ -134,7 +134,7 @@ flip_v = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="background"]
 autoplay = "stars"
-anims/stars = SubResource( 16 )
+anims/stars = SubResource( 1 )
 
 [node name="satellite" type="KinematicBody2D" parent="." groups=[
 "player",
@@ -147,13 +147,13 @@ acceleration = 0.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="satellite"]
 position = Vector2( -155.676, 0.532471 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="satellite"]
 position = Vector2( -163.586, 1.21353 )
 rotation = -1.5708
 scale = Vector2( 1.238, 1.238 )
-frames = SubResource( 7 )
+frames = SubResource( 8 )
 animation = "blink"
 frame = 1
 playing = true
@@ -163,7 +163,7 @@ position = Vector2( 5.91592, 2.57138 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="satellite/Area2D"]
 position = Vector2( -161.437, -1.99802 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="hit" type="AudioStreamPlayer2D" parent="satellite"]
 stream = ExtResource( 16 )
@@ -183,7 +183,7 @@ margin_left = 105.7
 margin_top = 470.74
 margin_right = 316.7
 margin_bottom = 555.74
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 text = "1"
 script = ExtResource( 8 )
 __meta__ = {
@@ -217,7 +217,7 @@ margin_left = -144.0
 margin_top = -350.232
 margin_right = 144.0
 margin_bottom = -247.232
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "Unpause"
 
 [node name="Button2" type="Button" parent="pauseMenu"]
@@ -230,7 +230,7 @@ margin_left = -144.0
 margin_top = -223.096
 margin_right = 144.0
 margin_bottom = -120.096
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "Quit"
 
 [node name="Label" type="Label" parent="pauseMenu"]
@@ -242,7 +242,7 @@ margin_left = -273.0
 margin_top = -458.566
 margin_right = 273.0
 margin_bottom = -367.566
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Paused"
 align = 1
 __meta__ = {
@@ -263,9 +263,9 @@ margin_left = -410.0
 margin_top = 244.0
 margin_right = 39.0
 margin_bottom = 338.0
-custom_styles/fg = SubResource( 12 )
-custom_styles/bg = SubResource( 13 )
-custom_fonts/font = SubResource( 14 )
+custom_styles/fg = SubResource( 13 )
+custom_styles/bg = SubResource( 14 )
+custom_fonts/font = SubResource( 15 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -302,7 +302,7 @@ margin_left = -145.0
 margin_top = 130.948
 margin_right = 143.0
 margin_bottom = 233.948
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -324,7 +324,7 @@ margin_left = -145.0
 margin_top = -0.905212
 margin_right = 143.0
 margin_bottom = 102.095
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "Replay"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -339,7 +339,7 @@ margin_left = -409.5
 margin_top = -253.152
 margin_right = 409.5
 margin_bottom = -162.152
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Game Over"
 align = 1
 __meta__ = {
@@ -355,7 +355,7 @@ margin_left = -409.5
 margin_top = -145.837
 margin_right = 409.5
 margin_bottom = -81.8366
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 16 )
 text = "Game Over"
 align = 1
 __meta__ = {
@@ -372,7 +372,7 @@ margin_left = -409.5
 margin_top = -91.0088
 margin_right = 409.5
 margin_bottom = -0.00878906
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 16 )
 text = "Game Over"
 align = 1
 __meta__ = {
@@ -380,8 +380,8 @@ __meta__ = {
 }
 [connection signal="animation_finished" from="satellite/AnimatedSprite" to="satellite" method="_on_Sprite_animation_finished"]
 [connection signal="area_entered" from="satellite/Area2D" to="satellite" method="_on_Area2D_area_entered"]
-[connection signal="timeout" from="Timer" to="spawner" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer" to="spawner" method="_on_Timer_timeout"]
 [connection signal="pressed" from="pauseMenu/Button" to="pauseMenu" method="_on_Button_pressed"]
 [connection signal="pressed" from="pauseMenu/Button2" to="pauseMenu" method="_on_Button2_pressed"]
 [connection signal="game_over" from="earth" to="spawner" method="_on_earth_game_over"]

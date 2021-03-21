@@ -1,8 +1,9 @@
 extends Node
 const enemy = preload("res://enemy.tscn")
+const enemy2 = preload("res://enemy2.tscn")
 var spawntimeMin = 1.0
 var spawntimeMax = 1.87
-
+var enemys = [enemy,enemy2]
 var time_passed = 0
 onready var timer = get_node("Timer")
 
@@ -17,6 +18,8 @@ func spawn():
   spawntimeMin -= 0.01
   spawntimeMax -= 0.01
   randomize()
+
+
   var enemy_in = enemy.instance()
   var pos = Vector2() 
   pos.x = 0-16

@@ -26,15 +26,14 @@ func _on_Area2D_area_entered(area):
 	$hitearht.play()
 	progressBar.value += 20
 	if progressBar.value == 100:
-		$explode.play()
-		emit_signal("game_over")
-		sprite.animation = "explode"
+		$AnimatedSprite.play("explode")
+		if sprite.frame == 5:
 		
-func _on_AnimatedSprite_animation_finished():
-	if (progressBar.value == 100):
-		sprite.playing = false
-		GameOver.visible = true
-		get_tree().paused = true
-		print(score.get_parent().DisplayValue)
+			emit_signal("game_over")
+			GameOver.visible = true
+			get_tree().paused = true
+			print(score.get_parent().DisplayValue)
+			
+			Displayscore.text = "Score:" + str(score.get_parent().DisplayValue)
 		
-		Displayscore.text = "Score:" + str(score.get_parent().DisplayValue)
+
