@@ -4,7 +4,7 @@
 [ext_resource path="res://enemy.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 10.6257
+radius = 20.4596
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )

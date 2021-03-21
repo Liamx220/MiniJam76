@@ -12,7 +12,7 @@ dest_files=[ "res://.import/Error 1.wav-0e01db3efb0122ddf6133ac56152fc23.sample"
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

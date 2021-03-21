@@ -12,7 +12,7 @@ dest_files=[ "res://.import/Sunstrider.wav-cce56c6e818135c266fe5bb9cfaa76ac.samp
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

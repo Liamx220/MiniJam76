@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://earth.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/satellite_blink.png" type="Texture" id=2]
@@ -18,9 +18,12 @@
 [ext_resource path="res://music/Error 1.wav" type="AudioStream" id=16]
 [ext_resource path="res://Sprites/satellite_hit.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/rad_bar_background.png" type="Texture" id=18]
+[ext_resource path="res://spawner2.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Gameover.gd" type="Script" id=20]
+[ext_resource path="res://music/Fallen in Battle.wav" type="AudioStream" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8.29504, 17.9775 )
+extents = Vector2( 7.04651, 15.4157 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -56,7 +59,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 8.83176, 18.9155 )
+extents = Vector2( 7.60748, 18.1769 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 50
@@ -94,6 +97,8 @@ position = Vector2( 656.029, 188.651 )
 scale = Vector2( 1.38587, 1.38587 )
 stream = ExtResource( 15 )
 volume_db = -2.144
+
+[node name="spawner2" parent="." instance=ExtResource( 19 )]
 
 [node name="spawner" parent="." instance=ExtResource( 6 )]
 
@@ -248,6 +253,7 @@ margin_left = -655.597
 margin_top = -188.922
 margin_right = 47.403
 margin_bottom = 357.078
+script = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -300,12 +306,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -409.5
-margin_top = -253.152
-margin_right = 409.5
-margin_bottom = -162.152
+margin_left = -397.153
+margin_top = -258.178
+margin_right = 421.847
+margin_bottom = -167.178
 custom_fonts/font = SubResource( 11 )
-text = "Game Over"
+text = "Game Over!"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -343,6 +349,11 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="death" type="AudioStreamPlayer2D" parent="earth"]
+pause_mode = 2
+position = Vector2( -655.597, -188.922 )
+stream = ExtResource( 21 )
 [connection signal="area_entered" from="satellite/Area2D" to="satellite" method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="pauseMenu/Button" to="pauseMenu" method="_on_Button_pressed"]

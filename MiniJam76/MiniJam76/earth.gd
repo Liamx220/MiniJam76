@@ -24,12 +24,20 @@ func _ready():
 
 func _on_Area2D_area_entered(area):
 	$hitearht.play()
-	progressBar.value += 20
+	if area.is_in_group("enemy"):
+		pass
+		
+		progressBar.value += 20
+	if area.is_in_group("enemy2"):
+		pass
+		
+		progressBar.value += 30
 	if progressBar.value == 100:
 		$AnimatedSprite.play("explode")
 		if sprite.frame == 5:
 		
 			emit_signal("game_over")
+			$death.play()
 			GameOver.visible = true
 			get_tree().paused = true
 			print(score.get_parent().DisplayValue)
