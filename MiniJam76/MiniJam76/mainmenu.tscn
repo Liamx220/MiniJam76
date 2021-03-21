@@ -16,7 +16,7 @@ font_data = ExtResource( 2 )
 size = 38
 font_data = ExtResource( 2 )
 
-[sub_resource type="Environment" id=17]
+[sub_resource type="Environment" id=4]
 background_mode = 4
 glow_enabled = true
 glow_intensity = 0.44
@@ -101,6 +101,6 @@ __meta__ = {
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 17 )
+environment = SubResource( 4 )
 [connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Control/Button2" to="." method="_on_Button2_pressed"]

@@ -21,4 +21,4 @@ func _on_Button2_pressed():
 
 
 func _on_Button_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://tutorial1.tscn")
