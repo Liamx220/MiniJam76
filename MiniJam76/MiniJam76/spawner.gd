@@ -3,6 +3,8 @@ const enemy = preload("res://enemy.tscn")
 var spawntimeMin = 1.0
 var spawntimeMax = 1.87
 
+var time_passed = 0
+onready var timer = get_node("Timer")
 
 func _ready():
 
@@ -23,3 +25,12 @@ func spawn():
   get_node("container").add_child(enemy_in)
   yield(get_tree().create_timer(rand_range(spawntimeMin, spawntimeMax)), "timeout") 
  pass
+
+func _on_Timer_timeout():
+	
+	time_passed += 1
+	if (time_passed <= 25):
+		spawntimeMin -= (0.04 * (time_passed / 12)) # lower minimum spawn rate every 12 seconds
+	else:
+		spawntimeMin -= (0.01 * (time_passed / 15))
+	

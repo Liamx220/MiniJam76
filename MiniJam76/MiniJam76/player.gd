@@ -41,4 +41,3 @@ func _on_Area2D_area_entered(area):
 func _on_Sprite_animation_finished():
 	if (sprite.animation == "hit"):
 		sprite.animation = "blink"
-		print("switch")
