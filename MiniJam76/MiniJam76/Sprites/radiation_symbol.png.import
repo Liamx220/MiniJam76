@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stopwatch.png-432af0d4788a742f5261f2860f31b21a.stex"
+path="res://.import/radiation_symbol.png-cc5e47a9dbd356c464b79810b4f61626.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/stopwatch.png"
-dest_files=[ "res://.import/stopwatch.png-432af0d4788a742f5261f2860f31b21a.stex" ]
+source_file="res://Sprites/radiation_symbol.png"
+dest_files=[ "res://.import/radiation_symbol.png-cc5e47a9dbd356c464b79810b4f61626.stex" ]
 
 [params]
 

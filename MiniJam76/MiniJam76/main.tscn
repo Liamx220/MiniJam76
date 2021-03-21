@@ -48,7 +48,7 @@ animations = [ {
 "frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": false,
 "name": "hit",
-"speed": 5.0
+"speed": 8.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=5]
@@ -89,7 +89,6 @@ rotation = -1.5708
 scale = Vector2( 1.238, 1.238 )
 frames = SubResource( 4 )
 animation = "blink"
-frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="satellite"]
@@ -140,5 +139,6 @@ texture = ExtResource( 11 )
 [node name="radiation_symbol" type="Sprite" parent="rad_bar_background"]
 position = Vector2( -39.2316, 0 )
 texture = ExtResource( 13 )
+[connection signal="animation_finished" from="satellite/Sprite" to="satellite" method="_on_Sprite_animation_finished"]
 [connection signal="area_entered" from="satellite/Area2D" to="satellite" method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

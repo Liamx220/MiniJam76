@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 export (float) var rotation_speed = 4
 
+onready var sprite = $Sprite
 var velocity = Vector2()
 var rotation_dir = 0
 
@@ -24,3 +25,9 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 
+func _on_Area2D_area_entered(area):
+	sprite.animation = "hit"
+
+func _on_Sprite_animation_finished():
+	if (sprite.animation == "hit"):
+		sprite.animation = "blink"
