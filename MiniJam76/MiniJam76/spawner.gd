@@ -15,8 +15,8 @@ func _ready():
 
 func spawn():
  while true:
-  spawntimeMin -= 0.02
-  spawntimeMax -= 0.02
+  #spawntimeMin -= 0.02
+  #spawntimeMax -= 0.02
   randomize()
 
 

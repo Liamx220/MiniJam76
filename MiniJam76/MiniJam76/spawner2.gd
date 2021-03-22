@@ -15,8 +15,8 @@ func _ready():
 
 func spawn():
  while true:
-  spawntimeMin -= 0.01
-  spawntimeMax -= 0.01
+  #spawntimeMin -= 0.01
+  #spawntimeMax -= 0.01
   randomize()
 
 
@@ -33,7 +33,7 @@ func _on_Timer_timeout():
 	
 	time_passed += 1
 	if (time_passed <= 25):
-		spawntimeMin -= (0.04 * (time_passed / 12)) # lower minimum spawn rate every 12 seconds
+		spawntimeMin -= (0.02 * (time_passed / 12)) # lower minimum spawn rate every 12 seconds
 	else:
 		spawntimeMin -= (0.01 * (time_passed / 15))
 	

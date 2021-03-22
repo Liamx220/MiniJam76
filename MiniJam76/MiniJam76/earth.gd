@@ -5,7 +5,7 @@ onready var progressBar = $ProgressBar
 onready var GameOver = $Gameover
 onready var Displayscore = $Gameover/Score
 onready var highscore = $Gameover/Score2
-onready var sprite = $AnimatedSprite
+onready var sprite = $Sprite
 onready var score = get_node("/root/Node2D/Display")#.get("Display.gd")
 
 signal game_over
@@ -32,16 +32,19 @@ func _on_Area2D_area_entered(area):
 		pass
 		
 		progressBar.value += 30
-	if progressBar.value == 100:
-		$AnimatedSprite.play("explode")
-		if sprite.frame == 5:
 		
+	if progressBar.value == 100:
+		$Sprite.play("explode")
+		$death.play()
+			
+		
+
+func _on_AnimatedSprite_animation_finished():
+	if progressBar.value == 100:
 			emit_signal("game_over")
-			$death.play()
 			GameOver.visible = true
 			get_tree().paused = true
 			print(score.get_parent().DisplayValue)
 			
 			Displayscore.text = "Score:" + str(score.get_parent().DisplayValue)
-		
-
+	pass # Replace with function body.

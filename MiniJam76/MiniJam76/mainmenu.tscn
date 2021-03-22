@@ -6,11 +6,11 @@
 [ext_resource path="res://Sprites/sunblock.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/satellite.png" type="Texture" id=5]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 38
 font_data = ExtResource( 2 )
 
-[sub_resource type="Environment" id=4]
+[sub_resource type="Environment" id=2]
 background_mode = 4
 glow_enabled = true
 glow_intensity = 0.44
@@ -43,7 +43,7 @@ margin_left = -128.5
 margin_top = -47.3251
 margin_right = 128.5
 margin_bottom = 26.6749
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "Play!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -58,14 +58,14 @@ margin_left = -128.5
 margin_top = 52.6749
 margin_right = 128.5
 margin_bottom = 126.675
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 4 )
+environment = SubResource( 2 )
 
 [node name="sunblock" type="Sprite" parent="."]
 position = Vector2( 347.649, 141.504 )

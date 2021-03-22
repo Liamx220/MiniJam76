@@ -1,12 +1,13 @@
-extends Node2D
+extends Control
 
 
-onready var score = get_node("res://Main.tscn")
-onready var timer = get_node("Score")
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
-func _physics_process(delta):
-	timer.text = str(score.DisplayValue)
